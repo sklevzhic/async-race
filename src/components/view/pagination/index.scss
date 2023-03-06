@@ -1,0 +1,36 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  &__button {
+    background: $base-color;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  &__button.disabled {
+    background: #a8a8a8;
+    pointer-events: none;
+  }
+
+
+
+  &__current {
+    background: white;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 10px;
+    margin: 0 10px;
+  }
+
+  &__button-left {
+
+  }
+}
+
+.hidden .pagination__button {
+  background: #a8a8a8;
+  pointer-events: none;
+}

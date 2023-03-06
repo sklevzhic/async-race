@@ -1,0 +1,63 @@
+.garage {
+
+  &__item {
+    position: relative;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item-winner {
+    background: rgba(255, 255, 255, 0.28);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 35px;
+    padding-top: 25px;
+  }
+
+  &__item-winner .text {
+
+  }
+  &__item-winner .time {
+    color: $base-color;
+    margin-left: 20px;
+  }
+
+
+  &__item-actions {
+    flex-basis: 100px;
+    display: flex;
+    align-items: center
+  }
+
+  &__item-actions-left {
+    display: flex;
+    flex-direction: column;
+    margin-right: 7px;
+  }
+
+  &__road-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item-active {
+    background: #484848;
+  }
+
+  &__item-active .button__select {
+    background: #f8a8a8;
+  }
+
+  &__mode {
+    border: 1px dotted #ffde2e;
+    font-size: 18px;
+    padding: 2px;
+  }
+}

@@ -1,0 +1,31 @@
+.form {
+  &__row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  &__row-name {
+    width: 300px;
+    padding: 5px;
+    color: $bg-main-color;
+  }
+
+  &__row-name:focus {
+    border: 1px solid $base-color;
+  }
+
+  &__row-color {
+    margin: 0 20px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    overflow: hidden;;
+  }
+
+  &__row-button {
+    width: 100px;
+  }
+
+}
+

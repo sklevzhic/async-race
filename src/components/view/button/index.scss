@@ -1,0 +1,93 @@
+.button {
+  padding: 10px;
+  background: $base-color;
+  color: $bg-container-color;
+  border-radius: $default-border-radius;
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+
+  &:hover {
+    background: rgba($base-color, 0.8);
+  }
+
+  &__large {
+    padding: 10px 50px;
+  }
+
+  &__circle {
+    background: none;
+    border: 1px dotted gray;
+    color: white;
+    padding: 5px;
+  }
+
+
+  &__circle-active {
+    background: rgba($base-color, 0.2);
+    border: 3px dotted $bg-main-color;
+    color: white;
+  }
+
+  &__remove, &__select {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  &.disable {
+    background: gray;
+    color: black;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &__circle.loading {
+    color: black;
+    cursor: all-scroll;
+    pointer-events: none;
+    position: relative;
+    z-index: 0;
+
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 6px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -2;
+      left: -50%;
+      top: -50%;
+      width: 200%;
+      height: 200%;
+      background-color: #399953;
+      background-repeat: no-repeat;
+      background-size: 50% 50%, 50% 50%;
+      background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+      background-image: linear-gradient(#ffd800, #84f11e), linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
+      animation: rotate 4s linear infinite;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 6px;
+      top: 6px;
+      width: calc(100% - 12px);
+      height: calc(100% - 12px);
+      background: white;
+      border-radius: 5px;
+    }
+  }
+
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+

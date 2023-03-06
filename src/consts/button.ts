@@ -1,0 +1,11 @@
+export const BUTTON =  {
+    TO_WINNERS: "TO WINNERS",
+    TO_GARAGE: "TO GARAGE",
+    REMOVE_CAR: "REMOVE",
+    SELECT_CAR: "SELECT",
+    START_CAR: "A",
+    STOP_CAR: "B",
+    RACE: "RACE",
+    RESET: "RESET",
+    GENERATE_CARS: "GENERATE_CARS"
+}

@@ -1,0 +1,61 @@
+import {BASE_URL} from "..";
+import {Winner} from "../../types/Winner";
+import {DataFetchWinners} from "../../types/DataFetchWinners";
+
+class WinnerAPI {
+
+    async getWinners({page, limit, sort, order}: DataFetchWinners): Promise<{ winners: Winner[], count: number }> {
+        const response = await fetch(BASE_URL + `/winners?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order} `, {
+            headers: {
+                "X-Total-Count": "4"
+            }
+        })
+        const winners = await response.json() as Winner[]
+        return {winners, count: +response.headers.get("X-Total-Count")}
+    }
+
+    async getWinnerInfo(id: number): Promise<Winner> {
+        const response = await fetch(BASE_URL + `/winners/${id}`)
+
+        return response.status == 200 ? response.json() : {}
+    }
+
+    async createWinner(winner: Winner) {
+        const response = await fetch(BASE_URL + `/winners`, {
+            method: 'POST',
+            body: JSON.stringify(winner),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        const newWinner = await response.json()
+        return newWinner
+    }
+
+    async updateWinner(winner: Winner) {
+        const response = await fetch(BASE_URL + `/winners/${winner.id}`, {
+            method: "PUT",
+            body: JSON.stringify({wins: winner.wins, time: winner.time}),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        const newWinner = await response.json()
+        return newWinner
+    }
+
+    async removeWinner(id: number) {
+        const { status } = await fetch(BASE_URL + `/winners/${id}`)
+        if (status == 200) {
+            const response = await fetch(BASE_URL + `/winners/${id}`, {
+                method: "DELETE",
+            })
+
+            await response.json()
+        }
+    }
+
+}
+
+const winnerApi = new WinnerAPI();
+export default winnerApi;

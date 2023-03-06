@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  background: $bg-main-color;
+  font-family: monospace;
+}
+
+
+.container {
+  max-width: 1200px;
+  min-width: 450px;
+  margin: 0 auto;
+}
+
+.empty {
+  border: 1px solid gray;
+  font-size: 25px;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  margin: 20px;
+
+}

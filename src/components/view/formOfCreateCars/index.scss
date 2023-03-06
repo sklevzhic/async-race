@@ -1,0 +1,32 @@
+.form {
+  background: $bg-forms-color;
+  color: black;
+  border-radius: $default-border-radius;
+  max-width: 800px;
+  margin: 20px auto;
+
+  &__inner-wrapper {
+    padding: 30px;
+
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    margin: 0 auto;
+
+  }
+
+  &__actions-top {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+  }
+
+  &__actions-bottom {
+    display: flex;
+    justify-content: center;
+  }
+
+}

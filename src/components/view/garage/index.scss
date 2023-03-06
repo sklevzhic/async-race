@@ -1,0 +1,16 @@
+.garage {
+  max-width: 100%;
+  margin: 0 auto;
+
+  &__title {
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+
+  &__title span {
+    color: $base-color;
+  }
+}
