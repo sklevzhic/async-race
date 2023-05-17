@@ -1,6 +1,6 @@
-import "./index.scss"
-import App from "./components/app/app"
+import "./index.scss";
+import App from "./components/app/app";
 
-const app = new App()
+const app = new App();
 
-app.run()
+app.run();

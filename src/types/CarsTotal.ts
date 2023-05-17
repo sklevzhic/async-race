@@ -1,6 +1,6 @@
-import {CarInterface} from "./Car";
+import type { CarInterface } from "./Car";
 
 export interface CarsTotal {
-    cars: CarInterface[],
-    count: number
+    cars: CarInterface[];
+    count: number;
 }

@@ -1,6 +1,6 @@
 import FormOfCreateCars from "../../components/view/formOfCreateCars";
 import Garage from "../../components/view/garage";
-import Controller from "../../components/controller";
+import type Controller from "../../components/controller";
 
 class GaragePage {
     root: HTMLElement;
@@ -15,42 +15,44 @@ class GaragePage {
         this.root.classList.add("main");
         this.root.id = id;
 
-        this.form = new FormOfCreateCars(this.controller, this.updateGarage, this.handleStartRace, this.handleResetRace)
-        this.garage = new Garage(this.controller, this.updateForm)
-        this.updateGarage()
+        this.form = new FormOfCreateCars(this.controller, this.updateGarage, this.handleStartRace, this.handleResetRace);
+        this.garage = new Garage(this.controller, this.updateForm);
+        void this.updateGarage();
     }
 
     render() {
-        const container = document.createElement("div")
-        container.classList.add("container")
+        const container = document.createElement("div");
 
-        const formHTML = this.form.render()
-        container.append(formHTML)
+        container.classList.add("container");
 
-        const garageHTML = this.garage.render()
-        container.append(garageHTML)
+        const formHTML = this.form.render();
 
-        this.root.append(container)
-        return this.root
+        container.append(formHTML);
+
+        const garageHTML = this.garage.render();
+
+        container.append(garageHTML);
+
+        this.root.append(container);
+
+        return this.root;
     }
-
 
     updateGarage = async () => {
-        await this.garage.updateGarage()
-    }
+        await this.garage.updateGarage();
+    };
 
     updateForm = async () => {
-        this.form.updateForm()
-    }
+        this.form.updateForm();
+    };
 
     handleStartRace = async () => {
-        await this.garage.handleStartRace()
-    }
+        await this.garage.handleStartRace();
+    };
 
     handleResetRace = async () => {
-        await this.garage.handleResetRace()
-    }
+        await this.garage.handleResetRace();
+    };
 }
 
-
-export default GaragePage
+export default GaragePage;

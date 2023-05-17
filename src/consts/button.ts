@@ -7,5 +7,5 @@ export const BUTTON =  {
     STOP_CAR: "B",
     RACE: "RACE",
     RESET: "RESET",
-    GENERATE_CARS: "GENERATE_CARS"
-}
+    GENERATE_CARS: "GENERATE_CARS",
+};

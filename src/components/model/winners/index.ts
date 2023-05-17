@@ -1,22 +1,22 @@
-import {Winner} from "../../../types/Winner";
-import {DataFetchWinners} from "../../../types/DataFetchWinners";
-import {winnerApi} from "../../../api";
-import {WinnersTotal} from "../../../types/WinnersTotal";
+import type { Winner } from "../../../types/Winner";
+import type { DataFetchWinners } from "../../../types/DataFetchWinners";
+import { winnerApi } from "../../../api";
+import type { WinnersTotal } from "../../../types/WinnersTotal";
 import winnerAPI from "../../../api/winnerAPI";
-import {Sort} from "../../../types/Sort";
-import {Order} from "../../../types/Order";
+import { Sort } from "../../../types/Sort";
+import { Order } from "../../../types/Order";
 
 class ModelWinners {
     winners: Winner[];
     winnersCount: number;
     currentPage: number;
     limit: number;
-    sort: Sort
-    order: Order
+    sort: Sort;
+    order: Order;
 
     constructor() {
-        this.winners = []
-        this.winnersCount = 0
+        this.winners = [];
+        this.winnersCount = 0;
         this.currentPage = 1;
         this.limit = 10;
         this.sort = Sort.wins;
@@ -24,40 +24,44 @@ class ModelWinners {
     }
 
     setCurrentPage(page: number) {
-        this.currentPage = page
+        this.currentPage = page;
     }
 
     getCurrentPage(): number {
-        return this.currentPage
+        return this.currentPage;
     }
 
     getElementsPerPage(): number {
-        return this.limit
+        return this.limit;
     }
 
     setSort(sort: Sort) {
-        this.sort = sort
+        this.sort = sort;
     }
 
     getSort(): Sort {
-        return this.sort
+        return this.sort;
     }
 
     setOrder() {
-        this.order = this.getNewOrder(this.order)
+        const order = this.getNewOrder(this.order);
+
+        if (order) {
+            this.order = order;
+        }
     }
 
-    getNewOrder(order: Order): Order {
+    getNewOrder(order: Order): Order | undefined {
         if (order === Order.ASC) {
-            return Order.DESC
+            return Order.DESC;
         }
         if (order === Order.DESC) {
-            return Order.ASC
+            return Order.ASC;
         }
     }
 
     getOrder(): Order {
-        return this.order
+        return this.order;
     }
 
     async fetchWinners() {
@@ -65,32 +69,36 @@ class ModelWinners {
             page: this.currentPage,
             limit: this.limit,
             sort: this.sort,
-            order: this.order
-        }
-        const {winners, count} = await winnerApi.getWinners(data);
+            order: this.order,
+        };
+        const { winners, count } = await winnerApi.getWinners(data);
+
         this.winners = winners;
-        this.winnersCount = count
+        this.winnersCount = count;
     }
 
     getWinners(): WinnersTotal {
-        return {winners: this.winners, count: this.winnersCount}
+        return { winners: this.winners, count: this.winnersCount };
     }
 
     async setWinner(id: number, time: number) {
-        let winnerInfo = await winnerApi.getWinnerInfo(id)
+        let winnerInfo = await winnerApi.getWinnerInfo(id);
 
         if (winnerInfo.id) {
             winnerInfo = {
                 ...winnerInfo,
                 time: time < winnerInfo.time ? time : winnerInfo.time,
                 wins: +winnerInfo.wins + 1,
-            }
-            return await winnerAPI.updateWinner(winnerInfo)
-        } else {
+            };
+
+            return await winnerAPI.updateWinner(winnerInfo);
+        }
+        else {
             winnerInfo = {
                 id, time, wins: 1,
-            }
-            return await winnerAPI.createWinner(winnerInfo)
+            };
+
+            return await winnerAPI.createWinner(winnerInfo);
         }
     }
 
@@ -100,4 +108,4 @@ class ModelWinners {
 
 }
 
-export default ModelWinners
+export default ModelWinners;

@@ -8,10 +8,10 @@ export class Controller {
     engineController: EngineController;
 
     constructor() {
-        this.garageController = new GarageController()
-        this.engineController = new EngineController()
-        this.winnersController = new WinnersController()
+        this.garageController = new GarageController();
+        this.engineController = new EngineController();
+        this.winnersController = new WinnersController();
     }
 }
 
-export default Controller
+export default Controller;

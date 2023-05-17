@@ -1,4 +1,4 @@
-function generateCar(color: string = "#ff0000"): string {
+function generateCar(color = "#ff0000"): string {
     // let percent: number = 0.3
     return `
     <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 180" width="80" height="43" fill=${color}>
@@ -57,9 +57,7 @@ function generateCar(color: string = "#ff0000"): string {
 9.3-14.9 9.3-14.9zm-15.6 19.1l-9.3-16.5-8.3 16.1c7 6.2 17.6 0.4 17.6 0.4zm-24.5-3.8l10.1-16.1-18.2 0.5c-2 9 8.1 15.6 8.1 
 15.6zm9.3-23.6l-11.8-13.9c-8.3 4.1-7.1 16.1-7.1 16.1z"></path>
 </svg>
-    `
-
-
+    `;
 }
 
-export default generateCar
+export default generateCar;

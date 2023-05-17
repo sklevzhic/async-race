@@ -8,11 +8,11 @@ class ErrorPage {
     }
 
     render(): HTMLElement {
-        this.root.innerHTML = "404"
-        return this.root
+        this.root.innerHTML = "404";
+
+        return this.root;
     }
 
 }
 
-
-export default ErrorPage
+export default ErrorPage;

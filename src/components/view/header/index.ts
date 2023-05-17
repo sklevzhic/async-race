@@ -1,21 +1,22 @@
-import Button from "../button"
-import "./index.scss"
-import {BUTTON} from "../../../consts/button";
+import Button from "../button";
+import "./index.scss";
+import { BUTTON } from "../../../consts/button";
 import { replaceHash } from "../../../utils/replaceHash";
 
 class Header {
     root: HTMLElement;
 
     constructor() {
-        this.root = document.createElement("header")
-        this.root.classList.add("header")
+        this.root = document.createElement("header");
+        this.root.classList.add("header");
 
-        this._enableHandlerPage()
+        this._enableHandlerPage();
     }
 
     render(): HTMLElement {
-        const container = document.createElement("div")
-        container.classList.add("container")
+        const container = document.createElement("div");
+
+        container.classList.add("container");
 
         container.innerHTML = `
             <div class="header__wrapper">
@@ -27,22 +28,23 @@ class Header {
                     ${Button("TO GARAGE").outerHTML}
                 </div>    
             </div>
-    `
-        this.root.append(container)
-        return this.root
+    `;
+        this.root.append(container);
+
+        return this.root;
     }
 
     _enableHandlerPage() {
         this.root.addEventListener("click", (e) => {
             if (e.target instanceof HTMLButtonElement && e.target.classList.contains("button")) {
                 if (e.target.textContent === BUTTON.TO_GARAGE) {
-                    window.location.href = replaceHash(window.location.href, "#garage")
+                    window.location.href = replaceHash(window.location.href, "#garage");
                 }
                 if (e.target.textContent === BUTTON.TO_WINNERS) {
-                    window.location.href = replaceHash(window.location.href, "#winners")
+                    window.location.href = replaceHash(window.location.href, "#winners");
                 }
             }
-        })
+        });
     }
 }
 

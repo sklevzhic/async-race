@@ -1,3 +1,3 @@
-import {CarFormInterface} from "./Car";
+import type { CarFormInterface } from "./Car";
 
-export type handleCar = (car: CarFormInterface) => void
+export type handleCar = (car: CarFormInterface) => void;

@@ -65,8 +65,9 @@ export default function generateCarName(): string {
         "Tesla",
         "Toyota",
         "Volkswagen",
-        "Volvo"
-    ]
-    const carModel: string[] = ["Bulldog", "Cygnet", "DB AR1", "DB11", "DB5", "DB7", "DB9", "DBS", "A2", "A3", "A4", "A5", "A6", "A7"]
-    return carNames[getRandomIndex(carNames.length)] + " " + carModel[getRandomIndex(carModel.length)]
+        "Volvo",
+    ];
+    const carModel: string[] = [ "Bulldog", "Cygnet", "DB AR1", "DB11", "DB5", "DB7", "DB9", "DBS", "A2", "A3", "A4", "A5", "A6", "A7" ];
+
+    return `${carNames[getRandomIndex(carNames.length)]  } ${carModel[getRandomIndex(carModel.length)]}`;
 }

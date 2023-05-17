@@ -1,6 +1,6 @@
-import {Winner} from "./Winner";
+import type { Winner } from "./Winner";
 
 export interface WinnersTotal {
-    winners: Winner[],
-    count: number
+    winners: Winner[];
+    count: number;
 }

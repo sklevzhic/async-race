@@ -1,11 +1,65 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
+    "plugins": [
+      { "transform": "../cftools/node_modules/ts-nameof", "type": "raw" }
+    ],
+    "module": "commonjs",
+    "outDir": "./build_ts",
+    "baseUrl": ".",
+    "paths": {
+      "cftools": ["../cftools/*"],
+      "cfphone": ["../cfphone/*"],
+      "cfmodels": ["../cfmodels/*"],
+      "junct.io": ["../junct.io/*"]
+    },
+    "lib": [ "DOM", "ESNext", "ES2021", "ES2020", "ES2019", "ES2018", "ES2017", "ES2016", "ES2015" ],
     "jsx": "react",
     "allowJs": true,
-    "moduleResolution": "node"
-  }
+    "alwaysStrict": true,
+    "sourceMap": false,
+    "strictNullChecks": true,
+    "stripInternal": true,
+    "target": "es6",
+    "noResolve": false,
+    "diagnostics": false,
+    "extendedDiagnostics": false,
+    "declaration": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "disableSizeLimit": false,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "strictBindCallApply": true,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": true,
+    "preserveConstEnums": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "newLine": "lf"
+  },
+"include": [
+    "**/*.ts",
+    "ts_types/**/*.ts"
+  ],
+  "exclude": [
+    "build",
+    "build_cache",
+    "build_ts",
+    "node_modules",
+    "node_modules/junct.io",
+    "node_modules/cfmodels",
+    "node_scripts",
+    "doc",
+    "tasks",
+    "test",
+    "spec",
+    "spec_utils",
+    "spec_data",
+    "_benchmarks",
+    "_build_lib",
+    "_dev_utils",
+    "_snippets",
+    "coverage"
+  ]
 }

@@ -1,61 +1,62 @@
 import ModelGarage from "../../model/garage";
-import { CarFormInterface, CarInterface } from "../../../types/Car";
+import type { CarFormInterface, CarInterface } from "../../../types/Car";
 
 class GarageController {
-    model: ModelGarage
+    model: ModelGarage;
     constructor() {
-        this.model = new ModelGarage()
+        this.model = new ModelGarage();
     }
 
     getTotalCount(): number {
-        return this.model.getTotalCount()
+        return this.model.getTotalCount();
     }
 
     async getCars(page: number): Promise<CarInterface[]> {
-        return await this.model.getCars(page)
+        return await this.model.getCars(page);
     }
 
     setCurrentPageGarage = (page: number) => {
-        this.model.setCurrentPageGarage(page)
-    }
+        this.model.setCurrentPageGarage(page);
+    };
 
     getCurrentPageGarage(): number {
-        return this.model.getCurrentPageGarage()
+        return this.model.getCurrentPageGarage();
     }
 
-    setSelectedCar(id: number) {
-        this.model.setSelectedCar(id)
+    setSelectedCar(id: number | null) {
+        if (id) {
+            this.model.setSelectedCar(id);
+        }
     }
 
     getSelectedCar = () => {
-        return this.model.getSelectedCar()
-    }
+        return this.model.getSelectedCar();
+    };
 
-    async handlerCar({method, name, color, id}: CarFormInterface) {
-
+    async handlerCar({ method, name, color, id }: CarFormInterface) {
         if (method === "create") {
-            await this.model.createCar(color, name)
+            await this.model.createCar(color, name);
         }
 
-        if (method === "update") {
-            await this.model.updateCar(id, name, color)
+        if (method === "update" && id) {
+            await this.model.updateCar(id, name, color);
         }
     }
 
     async deleteCar(id: number) {
-        await this.model.deleteCar(id)
+        await this.model.deleteCar(id);
     }
 
-    async generateCars(size: number = 100) {
-        await this.model.generateCars(size)
+    async generateCars(size = 100) {
+        await this.model.generateCars(size);
     }
 
     setIsRace(value: boolean) {
-        this.model.setIsRace(value)
+        this.model.setIsRace(value);
     }
 
     getIsRace() {
-        return this.model.getIsRace()
+        return this.model.getIsRace();
     }
 
 }
